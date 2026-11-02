@@ -135,6 +135,65 @@ tbody tr{transition:background .3s}tr.hl td{background:var(--ph)!important}
 #up.on{opacity:1;transform:none;pointer-events:auto}#up:hover{background:var(--sun)}
 @media (max-width:600px){.brand{display:none}.bar{justify-content:space-between}}
 @media (prefers-reduced-motion:reduce){html.js .rv{opacity:1;transform:none;transition:none}.fl{display:none}.entry.on,.hero .in>div>*,details[open] dl{animation:none}.tl li.now i{animation:none}}
+
+/* ===== UI v3 ===== */
+:root{--bark:#9b7b4f}
+.hero{--p:0}.sheets{transform:translateY(calc(var(--p)*28px)) scale(calc(1 + var(--p)*.08))}.hero::after{transform:translate(calc(var(--p)*-40px),calc(var(--p)*-30px))}
+.btn.g{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.65)}.btn.g:hover{background:rgba(255,255,255,.15);box-shadow:none}
+.picker{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0 0}
+.pc{text-align:left;font-family:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:16px 18px 16px 74px;position:relative;cursor:pointer;transition:border-color .25s,background .25s,box-shadow .25s}
+.pc i{position:absolute;left:16px;top:50%;margin-top:-22px;width:44px;height:44px;border-radius:4px 50% 4px 50%;background:var(--leaf);color:#12302c;display:grid;place-items:center;font:800 1.2rem "Bricolage Grotesque",sans-serif;font-style:normal}
+.pc b{display:block;font:700 1.05rem/1.2 "Bricolage Grotesque",sans-serif}.pc small{color:var(--mut)}
+.pc.on{border-color:var(--leaf);background:var(--soft);box-shadow:0 8px 20px rgba(14,90,82,.14)}
+@media (max-width:720px){.picker{grid-template-columns:1fr}}
+.sec{margin:22px 0;padding:4px 26px 24px;border-radius:28px}.sec.alt{background:color-mix(in srgb,var(--soft) 55%,transparent);border:1.5px solid var(--line)}.sec h2{margin-top:.9em}
+@media (max-width:720px){.sec{padding:2px 14px 18px}}
+#e2 .sec:first-child p:first-of-type::first-letter{float:left;font:800 3.3rem/.85 "Bricolage Grotesque",sans-serif;color:var(--teal);padding:6px 8px 0 0}
+mark{background:linear-gradient(transparent 60%,rgba(255,210,63,.6) 0);color:inherit;font-weight:600;padding:0 2px}
+.seg{display:inline-flex;flex-wrap:wrap;background:var(--soft);border:1.5px solid var(--line);border-radius:999px;padding:3px;margin:4px 8px 10px 0}
+.seg button{font:600 .9rem "Source Sans 3",sans-serif;border:0;background:none;color:var(--teal);padding:6px 14px;border-radius:999px;cursor:pointer;transition:background .25s}
+.seg button[aria-pressed=true]{background:var(--teal);color:var(--bg)}
+.panel{background:var(--card);border:1.5px solid var(--line);border-left:6px solid var(--leaf);border-radius:16px;padding:14px 20px;margin:4px 0 18px;min-height:5.5em}
+.rings{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+.ring{text-align:center;position:relative;font-size:.9rem;color:var(--mut)}.ring svg{width:112px;height:112px;display:block;margin:0 auto 4px}
+.ring circle{fill:none;stroke-width:11}.rb{stroke:var(--line)}.rf{stroke:var(--leaf);stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;transform:rotate(-90deg);transform-origin:60px 60px;transition:stroke-dashoffset 1.4s ease}
+.ring b{position:absolute;top:36px;left:0;right:0;font:800 1.45rem "Bricolage Grotesque",sans-serif;color:var(--teal)}
+@media (max-width:720px){.rings{grid-template-columns:1fr}}
+#tree{width:100%;height:auto;display:block;margin:8px 0 0;overflow:visible}
+#tree text{font:600 18px "Source Sans 3",sans-serif;fill:var(--ink)}#tree .lg{font-size:14px;fill:var(--mut);text-transform:uppercase;letter-spacing:.1em}
+.t-br,.t-ro{fill:none;stroke-width:5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}.t-br{stroke:var(--leaf)}.t-ro{stroke:var(--bark)}
+.vis .t-br,.vis .t-ro{animation:dr 1.2s ease forwards}@keyframes dr{to{stroke-dashoffset:0}}
+.tk{fill:var(--bark)}.gr{stroke:var(--line);stroke-width:2;stroke-dasharray:6 6}
+.nd{cursor:pointer;opacity:0;outline:none}.vis .nd{animation:pop .5s ease forwards;animation-delay:calc(var(--i)*90ms + 600ms)}@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.nd rect{fill:var(--soft);stroke:var(--leaf);stroke-width:2;transition:fill .25s}.nd.ro rect{fill:var(--card);stroke:var(--bark)}.nd:hover rect,.nd:focus-visible rect{fill:var(--leaf)}.nd.on rect{fill:var(--sun)}
+.nd.on text,.nd:hover text{fill:#12302c}.trunk rect{fill:var(--teal)}.trunk text{fill:#fff!important}
+.tcap{min-height:4.4em;background:var(--soft);border-radius:14px;padding:10px 16px;font-size:.95rem;margin:6px 0 0}
+.flow{list-style:none;counter-reset:s;display:flex;gap:10px;padding:0;margin:14px 0;flex-wrap:wrap}
+.flow li{counter-increment:s;flex:1 1 150px;position:relative;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:14px 14px 12px 50px;font-weight:600;line-height:1.3}
+.flow li::before{content:counter(s);position:absolute;left:12px;top:12px;width:28px;height:28px;border-radius:4px 50% 4px 50%;background:var(--leaf);color:#12302c;display:grid;place-items:center;font:800 .95rem "Bricolage Grotesque",sans-serif}
+.flow li:not(:last-child)::after{content:"→";position:absolute;right:-17px;top:50%;margin-top:-12px;color:var(--teal);font-weight:800;z-index:2}
+html.js .flow li{opacity:0;transform:translateX(-16px);transition:opacity .5s,transform .5s}html.js .flow.vis li{opacity:1;transform:none}
+@media (max-width:720px){.flow{flex-direction:column}.flow li:not(:last-child)::after{content:"↓";right:auto;left:20px;top:auto;bottom:-20px;margin:0}}
+@media (hover:hover){.card:hover,.stat:hover,.pc:hover{transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-3px)!important;transition-delay:0s!important}}
+#lb img{transition:transform .35s;cursor:zoom-in}#lb img.z{transform:scale(1.8);cursor:zoom-out}
+#lb button{position:fixed;background:rgba(255,255,255,.14);color:#fff;border:0;width:46px;height:46px;border-radius:50%;font-size:1.8rem;cursor:pointer;z-index:2}#lb button:hover{background:var(--leaf);color:#12302c}
+.lp{left:16px;top:50%}.ln{right:16px;top:50%}.lx{right:16px;top:calc(16px + env(safe-area-inset-top,0px))}
+.lc{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;color:#e7f2e3;font-size:.92rem;padding:0 70px}
+#bb{display:none}
+@media (max-width:720px){#bb{display:flex;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:50;background:color-mix(in srgb,var(--card) 92%,transparent);backdrop-filter:blur(10px);border:1.5px solid var(--line);border-radius:22px;padding:6px;box-shadow:0 8px 24px rgba(14,90,82,.18)}
+#bb a{flex:1;text-align:center;font:600 .7rem "Source Sans 3",sans-serif;color:var(--mut);text-decoration:none;padding:4px 0;border-radius:14px}#bb a b{display:block;font-size:1.15rem;line-height:1.1}#bb a.on{color:var(--teal);background:var(--soft)}
+#chips{display:none}body{padding-bottom:88px}#up{bottom:calc(88px + env(safe-area-inset-bottom,0px))}}
+@media (prefers-reduced-motion:reduce){.t-br,.t-ro{stroke-dashoffset:0}.nd{opacity:1}.vis .nd,.vis .t-br,.vis .t-ro{animation:none}html.js .flow li{opacity:1;transform:none;transition:none}.rf{transition:none}}
+
+.hint{display:inline-block;background:var(--ph);color:var(--phi);font-weight:600;font-size:.9rem;padding:4px 14px;border-radius:999px;margin:6px 0 0}
+.tw{position:relative}.tw #tree{margin-top:4px}
+.pop{position:absolute;z-index:6;background:var(--card);border:2px solid var(--leaf);border-radius:6px 34px 6px 34px;padding:14px 38px 14px 20px;box-shadow:0 14px 32px rgba(14,90,82,.28);font-size:.95rem;line-height:1.5;animation:pp .38s cubic-bezier(.2,1.5,.4,1) both;transform-origin:var(--ax) 100%}.pop.ef{transform-origin:var(--ax) 0}
+.pop[hidden]{display:none}@keyframes pp{from{opacity:0;transform:scale(.55) rotate(-3deg)}to{opacity:1;transform:none}}
+.pop::after{content:"";position:absolute;left:calc(var(--ax) - 9px);width:16px;height:16px;background:var(--card);border:solid var(--leaf);transform:rotate(45deg)}
+.pop.ca::after{bottom:-10px;border-width:0 2px 2px 0}.pop.ef::after{top:-10px;border-width:2px 0 0 2px}
+.px{position:absolute;top:8px;right:12px;border:0;background:var(--soft);color:var(--teal);width:26px;height:26px;border-radius:50%;font-size:1.1rem;line-height:1;cursor:pointer}.px:hover{background:var(--leaf)}
+.nd.ro rect{stroke-width:3}.vis .nd:not(.on) rect{animation:hint 1.6s 2s 3}@keyframes hint{50%{stroke-width:6}}
+@media (prefers-reduced-motion:reduce){.pop,.vis .nd rect{animation:none}}
 </style>
 <script>document.documentElement.className+=" js"</script>
 </head>
@@ -153,7 +212,7 @@ tbody tr{transition:background .3s}tr.hl td{background:var(--ph)!important}
   <div><span class="tag">Práctica en Responsabilidad Social · UNIMINUTO</span>
   <h1>Resmas que se van, árboles que no vuelven</h1>
   <p>Diagnóstico y plan para reducir el consumo de papel y organizar su reciclaje en la oficina OPAM del Aeropuerto Internacional Matecaña.</p>
-  <p><strong>Eliot Samuel Martínez Cajamarca</strong> · NRC 781</p></div>
+  <p><strong>Eliot Samuel Martínez Cajamarca</strong> · NRC 781</p><p><a class="btn" href="#problema" data-chip="#problema">Ver problemática</a><a class="btn g" href="#plan" data-chip="#plan">Ver plan</a></p></div>
   <svg class="sheets" viewBox="0 0 300 230" role="img" aria-label="Pila de papel de la que brota una hoja verde">
    <rect x="60" y="170" width="180" height="22" rx="4" fill="#fff"/><rect x="66" y="148" width="180" height="22" rx="4" fill="#eaf4e6"/><rect x="54" y="126" width="180" height="22" rx="4" fill="#fff"/><rect x="62" y="104" width="180" height="22" rx="4" fill="#d7ece6"/><rect x="60" y="192" width="180" height="10" rx="3" fill="#ffd23f"/>
    <g class="leaf"><path d="M150 104C150 60 150 40 150 20" stroke="#8fd14f" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M150 70C110 70 90 45 92 25 125 25 150 40 150 70Z" fill="#8fd14f"/><path d="M150 52C185 52 205 32 204 12 172 12 150 26 150 52Z" fill="#b7e36a"/></g></svg>
@@ -212,18 +271,8 @@ tbody tr{transition:background .3s}tr.hl td{background:var(--ph)!important}
   <iframe class="mapframe" title="Mapa del Aeropuerto Internacional Matecaña, Pereira" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Aeropuerto+Internacional+Mateca%C3%B1a+Pereira&output=embed"></iframe>
   <h2 id="guia"><span class="n">3</span>Guía multidimensional</h2>
   <p>Cada problemática se mira en tres escalas, con sus causas y efectos. Uso las cifras como orden de magnitud.</p>
-  <details open><summary>Problemática 1 · Alto consumo de papel</summary><dl>
-   <dt>Local</dt><dd>En OPAM se usan 4 a 5 resmas al mes (110 a 140 kg al año, estimación propia), sin lineamientos de impresión a doble cara ni de digitalización.</dd>
-   <dt>Nacional</dt><dd>En 2024 se generaron 15,14 millones de toneladas de residuos y solo el 20 % se aprovechó (MVCT, 2026). La política de «cero papel» obliga al sector público, no a concesionarias privadas (Presidencia de la República, 2012).</dd>
-   <dt>Latinoamericano y global</dt><dd>La producción mundial de papel y cartón cayó 3 % en 2023 y los papeles gráficos llegaron a su cifra más baja desde 1987 (FAO, 2024): otros ya sustituyen lo impreso.</dd>
-   <dt>Causas</dt><dd>Históricas: cultura del documento impreso como prueba de formalidad. Socioculturales: imprimir «por si acaso». Políticas: sin lineamientos ni responsable. Económicas: papel barato y multifuncional compartida (Reyna Cruz et al., 2019).</dd>
-   <dt>Efectos</dt><dd>Sociales y culturales: se normaliza el desperdicio. Ambientales: reciclar una tonelada ahorra de 12 a 14 árboles y cerca del 80 % del agua (MITECO, s. f.). Políticos: brecha entre discurso y práctica de una concesionaria con licencia ambiental (ANLA, 2018).</dd></dl></details>
-  <details><summary>Problemática 2 · Sin separación en la fuente ni reciclaje</summary><dl>
-   <dt>Local</dt><dd>El papel va a las mismas canecas que el resto de residuos; no hay puntos ecológicos ni ruta de entrega. Hay un precedente en Pereira: una entidad judicial contrató la recolección con la Asociación de Recuperadores Punto Verde (Consejo Superior de la Judicatura, s. f.). La Glorita recibe unas 800 toneladas diarias (UTP, 2024) y sus lixiviados han afectado el río Otún (Zapata Zapata, s. f.).</dd>
-   <dt>Nacional</dt><dd>La Resolución 2184 de 2019 fija el código blanco, negro y verde (Ministerio de Ambiente y Desarrollo Sostenible, 2019) y el Decreto 596 de 2016 protege a los recicladores de oficio (MVCT, 2016), que reportaron cerca del 95 % de lo aprovechado (SSPD, 2024).</dd>
-   <dt>Latinoamericano</dt><dd>Más de dos millones de recicladores de base aportan más del 50 % del material recuperado, pero se recicla menos del 5 % (BID, s. f.-b).</dd>
-   <dt>Causas</dt><dd>Históricas: el reciclaje nació de la informalidad y la exclusión. Socioculturales: poca educación ambiental y estigma. Políticas: competencias dispersas. Económicas: con volúmenes pequeños, recolectar rinde poco.</dd>
-   <dt>Efectos</dt><dd>Sociales: cada kilo no recuperado es un ingreso que no llega a un reciclador. Culturales: se cree que el residuo «desaparece» al salir de la caneca. Ambientales: se pierde materia prima y se presiona un relleno con cerca de cinco años de vida útil (MVCT, 2024a). Políticos: se incumple en la práctica la norma de separación.</dd></dl></details>
+  <div id="gm"></div>
+  
   <details><summary>Emociones y percepciones durante la indagación</summary><p>Sentí incomodidad al ver que lo que fotografié, una caneca con hojas apenas usadas, es un hábito que yo también reproduzco. Se volvió preocupación al saber que La Glorita tiene cerca de cinco años de vida útil, y empatía al entender que un papel en una caneca mezclada es un ingreso que no llega a un reciclador. Pasé de observar el problema a sentirme parte de su solución, construida con mis compañeros.</p></details>
 
   <h2 id="objetivos"><span class="n">4</span>Objetivos</h2>
@@ -250,7 +299,9 @@ tbody tr{transition:background .3s}tr.hl td{background:var(--ph)!important}
   <p><strong>Académica.</strong> Aplica la responsabilidad social universitaria, la innovación social (Pacheco Duarte et al., 2022) y el abordaje interdisciplinar (Reyna Cruz et al., 2019) en un contexto real.</p>
   <p><strong>Científica.</strong> Parte de una línea de base y una medición final que generan evidencia local replicable, conectada con la meta 12.5 de la Agenda 2030 (Naciones Unidas, 2015).</p>
   <p><strong>Aportes.</strong> Hábitos sostenibles, ahorro de recursos y participación del personal; para los recicladores, material aprovechable constante.</p>
-  <p><strong>Teoría del cambio.</strong> Si las personas comprenden el problema, participan y cuentan con infraestructura y rutas claras, cambian sus hábitos, baja el consumo y aumenta el papel recuperado, en favor del desarrollo sostenible y la inclusión social.</p>
+  <h3>Teoría del cambio</h3>
+  <ol class="flow"><li>Comprenden el problema</li><li>Participan en el diseño</li><li>Cambian sus hábitos</li><li>Baja el consumo y sube el papel recuperado</li></ol>
+  <p>Aporte al desarrollo sostenible y la inclusión social.</p>
   <p><a class="btn" href="https://www.un.org/es/about-us/universal-declaration-of-human-rights" target="_blank" rel="noopener">Declaración Universal de DD. HH.</a><a class="btn" href="https://sdgs.un.org/es/goals/goal12" target="_blank" rel="noopener">ODS 12</a></p>
 
   <h2 id="recursos"><span class="n">🎬</span>Recursos para ampliar</h2>
@@ -328,6 +379,71 @@ li.firstChild.onclick=function(){r.scrollIntoView({behavior:B,block:"center"});r
 sc.parentNode.insertBefore(ol,sc);
 /* hojas que caen */
 var hero=$(".hero");if(hero&&!rm)for(var k=0;k<8;k++){var s=d.createElement("span");s.className="fl";s.style.left=(5+k*12+Math.random()*6)+"%";s.style.animationDuration=(9+Math.random()*7)+"s";s.style.animationDelay=(-Math.random()*12)+"s";s.style.width=s.style.height=(10+Math.random()*10)+"px";hero.appendChild(s)}
+})();
+</script>
+<script>
+(function(){
+var d=document,$=function(s,c){return(c||d).querySelector(s)},$$=function(s,c){return[].slice.call((c||d).querySelectorAll(s))},rm=matchMedia("(prefers-reduced-motion:reduce)").matches,B=rm?"auto":"smooth";
+var D=[{"t": "Alto consumo de papel", "sc": [["Local", "En OPAM se usan 4 a 5 resmas al mes (110 a 140 kg al año, estimación propia), sin lineamientos de impresión a doble cara ni de digitalización."], ["Nacional", "En 2024 se generaron 15,14 millones de toneladas de residuos y solo el 20 % se aprovechó (MVCT, 2026). La política de «cero papel» obliga al sector público, no a concesionarias privadas (Presidencia de la República, 2012)."], ["Latinoamericano y global", "La producción mundial de papel y cartón cayó 3 % en 2023 y los papeles gráficos llegaron a su cifra más baja desde 1987 (FAO, 2024): otros ya sustituyen lo impreso."]], "ca": [["Históricas", "cultura del documento impreso como prueba de formalidad."], ["Socioculturales", "imprimir «por si acaso»."], ["Políticas", "sin lineamientos ni responsable."], ["Económicas", "papel barato y multifuncional compartida (Reyna Cruz et al., 2019)."]], "ef": [["Sociales y culturales", "se normaliza el desperdicio."], ["Ambientales", "reciclar una tonelada ahorra de 12 a 14 árboles y cerca del 80 % del agua (MITECO, s. f.)."], ["Políticos", "brecha entre discurso y práctica de una concesionaria con licencia ambiental (ANLA, 2018)."]]}, {"t": "Sin separación ni ruta", "sc": [["Local", "El papel va a las mismas canecas que el resto de residuos; no hay puntos ecológicos ni ruta de entrega. Hay un precedente en Pereira: una entidad judicial contrató la recolección con la Asociación de Recuperadores Punto Verde (Consejo Superior de la Judicatura, s. f.). La Glorita recibe unas 800 toneladas diarias (UTP, 2024) y sus lixiviados han afectado el río Otún (Zapata Zapata, s. f.)."], ["Nacional", "La Resolución 2184 de 2019 fija el código blanco, negro y verde (Ministerio de Ambiente y Desarrollo Sostenible, 2019) y el Decreto 596 de 2016 protege a los recicladores de oficio (MVCT, 2016), que reportaron cerca del 95 % de lo aprovechado (SSPD, 2024)."], ["Latinoamericano", "Más de dos millones de recicladores de base aportan más del 50 % del material recuperado, pero se recicla menos del 5 % (BID, s. f.-b)."]], "ca": [["Históricas", "el reciclaje nació de la informalidad y la exclusión."], ["Socioculturales", "poca educación ambiental y estigma."], ["Políticas", "competencias dispersas."], ["Económicas", "con volúmenes pequeños, recolectar rinde poco."]], "ef": [["Sociales", "cada kilo no recuperado es un ingreso que no llega a un reciclador."], ["Culturales", "se cree que el residuo «desaparece» al salir de la caneca."], ["Ambientales", "se pierde materia prima y se presiona un relleno con cerca de cinco años de vida útil (MVCT, 2024a)."], ["Políticos", "se incumple en la práctica la norma de separación."]]}];
+/* secciones alternadas */
+$$("h2",$("#e2")).forEach(function(h,i){var s=d.createElement("section");s.className="sec"+(i%2?" alt":"");h.parentNode.insertBefore(s,h);var n=h;while(n&&!(n!==h&&n.tagName==="H2")){var x=n.nextSibling;s.appendChild(n);n=x}});
+/* resaltar cifras */
+function hl(r){var w=d.createTreeWalker(r,4),ns=[],n;while(n=w.nextNode())if(/\d\s?%/.test(n.nodeValue)&&!(n.parentNode.closest("mark,.refs,script,.lead")))ns.push(n);
+ns.forEach(function(n){var f=d.createDocumentFragment();n.nodeValue.split(/(\d[\d.,]*\s?%)/).forEach(function(x,i){if(i%2){var m=d.createElement("mark");m.textContent=x;f.appendChild(m)}else f.appendChild(d.createTextNode(x))});n.parentNode.replaceChild(f,n)})}
+/* guía: selector + anillos + árbol */
+var st={p:0,s:0},gm=$("#gm"),R=[["Histórica","Históricas"],["Sociocultural","Socioculturales"],["Política","Políticas"],["Económica","Económicas"],["Social-cultural","Sociales y culturales"],["Social","Sociales"],["Cultural","Culturales"],["Ambiental","Ambientales"],["Político","Políticos"]];
+function sh(l){var r=R.filter(function(x){return x[1]===l})[0];return r?r[0]:l}
+function ring(v,t){return '<div class="ring" data-v="'+v+'"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="rb" cx="60" cy="60" r="50"/><circle class="rf" cx="60" cy="60" r="50" pathLength="100"/></svg><b>0 %</b><span>'+t+'</span></div>'}
+gm.innerHTML='<div class="seg" id="sp"></div><div class="seg" id="ss"></div><div class="panel" id="pn" aria-live="polite"></div><div class="rings">'+ring(20,"de los residuos se aprovecha (MVCT, 2026)")+ring(95,"de lo aprovechado lo reportan recicladores en formalización (SSPD, 2024)")+ring(50,"del material recuperado en la región viene de recicladores de base (BID, s. f.-b)")+'</div><p class="hint">👆 Toca una raíz (causa) o una hoja (efecto)</p><div class="tw" id="tw"><svg id="tree" viewBox="0 0 720 470" role="img" aria-label="Árbol de problemas: causas en las raíces, efectos en las hojas"></svg><div class="pop" id="pop" hidden></div></div>';
+function btns(id,arr,k,fn){var c=$(id);c.innerHTML="";arr.forEach(function(t,i){var b=d.createElement("button");b.type="button";b.textContent=t;b.setAttribute("aria-pressed",i===k);b.onclick=function(){fn(i)};c.appendChild(b)})}
+function xs(n){var a=[];for(var i=0;i<n;i++)a.push(720*(i+.5)/n);return a}
+function hp(){var p=$("#pop");p.hidden=true;$$(".nd").forEach(function(x){x.classList.remove("on")})}
+function tree(){var P=D[st.p],c=P.ca,e=P.ef,cx=xs(c.length),ex=xs(e.length),s='<text class="lg" x="4" y="34">Efectos</text><text class="lg" x="4" y="458">Causas</text><line class="gr" x1="0" x2="720" y1="262" y2="262"/>';
+e.forEach(function(o,i){s+='<path class="t-br" pathLength="1" d="M360 170C360 125 '+ex[i]+' 135 '+ex[i]+' 92"/>'});
+c.forEach(function(o,i){s+='<path class="t-ro" pathLength="1" d="M360 262C360 330 '+cx[i]+' 325 '+cx[i]+' 392"/>'});
+s+='<rect class="tk" x="336" y="150" width="48" height="112" rx="10"/><g class="trunk"><rect x="215" y="186" width="290" height="46" rx="23"/><text x="360" y="216" text-anchor="middle">'+P.t+'</text></g>';
+function nd(o,x,y,k,i,ro){return '<g class="nd'+(ro?' ro':'')+'" tabindex="0" role="button" data-k="'+k+'" data-i="'+i+'" style="--i:'+i+'"><rect x="'+(x-78)+'" y="'+y+'" width="156" height="40" rx="20"/><text x="'+x+'" y="'+(y+26)+'" text-anchor="middle">'+sh(o[0])+'</text></g>'}
+e.forEach(function(o,i){s+=nd(o,ex[i],50,"ef",i,0)});c.forEach(function(o,i){s+=nd(o,cx[i],392,"ca",i,1)});
+var t=$("#tree");t.innerHTML=s;hp();
+$$(".nd",t).forEach(function(g){var f=function(){var p=$("#pop"),was=g.classList.contains("on");hp();if(was)return;g.classList.add("on");var o=P[g.dataset.k][g.dataset.i],ca=g.dataset.k==="ca",w=$("#tw"),W=w.clientWidth,pw=Math.min(400,W-16),wr=w.getBoundingClientRect(),gr=g.getBoundingClientRect(),cx=gr.left-wr.left+gr.width/2,l=Math.max(8,Math.min(cx-pw/2,W-pw-8));
+p.className="pop "+g.dataset.k;p.style.width=pw+"px";p.style.left=l+"px";p.style.setProperty("--ax",(cx-l)+"px");p.innerHTML='<button class="px" aria-label="Cerrar">×</button><strong>'+o[0]+':</strong> '+o[1];hl(p);p.hidden=false;$(".px",p).onclick=function(e){e.stopPropagation();hp()};
+p.style.top=Math.max(0,ca?gr.top-wr.top-p.offsetHeight-16:gr.bottom-wr.top+16)+"px"};g.onclick=f;g.onkeydown=function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();f()}}})}
+function render(){btns("#sp",["Problemática 1","Problemática 2"],st.p,function(i){st.p=i;st.s=0;render()});btns("#ss",D[st.p].sc.map(function(x){return x[0]}),st.s,function(i){st.s=i;render()});
+var pn=$("#pn");pn.innerHTML=D[st.p].sc[st.s][1];hl(pn);pn.style.animation="none";pn.offsetWidth;pn.style.animation="fi .4s both";tree()}
+render();
+d.addEventListener("click",function(e){if(!e.target.closest(".nd,.pop"))hp()});addEventListener("keydown",function(e){if(e.key==="Escape")hp()});
+/* aparición de visuales */
+function cnt(b,v){var t0=performance.now();(function f(n){var p=Math.min(1,(n-t0)/1300);b.textContent=Math.round(v*p)+" %";if(p<1)requestAnimationFrame(f)})(t0)}
+function vis(el){el.classList.add("vis");if(el.classList.contains("ring")){var v=+el.dataset.v;el.querySelector(".rf").style.strokeDashoffset=100-v;rm?el.querySelector("b").textContent=v+" %":cnt(el.querySelector("b"),v)}if(el.classList.contains("flow"))$$("li",el).forEach(function(l,i){l.style.transitionDelay=i*150+"ms"})}
+var tg=$$("#tree,.ring,.flow");
+if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){vis(x.target);io.unobserve(x.target)}})},{threshold:.25});tg.forEach(function(e){io.observe(e)})}else tg.forEach(vis);
+$$("#e1,#e2").forEach(hl);
+/* tarjetas de entrada */
+var pk=d.createElement("div");pk.className="picker";
+[["t1","1","Menos papel, más conciencia","Contexto y ruta de trabajo"],["t2","2","Resmas que se van, árboles que no vuelven","Problemática, guía y plan"]].forEach(function(x){var b=d.createElement("button");b.type="button";b.className="pc";b.dataset.t=x[0];b.innerHTML="<i>"+x[1]+"</i><b>"+x[2]+"</b><small>"+x[3]+"</small>";b.onclick=function(){$("#"+x[0]).click()};pk.appendChild(b)});
+$("main.wrap").insertBefore(pk,$("main.wrap").firstChild);
+var nx=d.createElement("button");nx.type="button";nx.className="btn";nx.textContent="← Volver a la entrada 1";nx.onclick=function(){$("#t1").click()};$("#e2 .sec:last-child").appendChild(nx);
+/* accesos de portada y barra móvil */
+function go(h){var a=$('#chips a[href="'+h+'"]');if(a)a.click()}
+$$("[data-chip]").forEach(function(a){a.onclick=function(e){e.preventDefault();go(a.dataset.chip)}});
+var bb=d.createElement("nav");bb.id="bb";bb.setAttribute("aria-label","Accesos rápidos");
+[["","Inicio","⌂"],["#problema","Problema","◎"],["#guia","Guía","✦"],["#plan","Plan","▤"],["#referencias","Fuentes","❡"]].forEach(function(x){var a=d.createElement("a");a.href=x[0]||"#";a.dataset.h=x[0];a.innerHTML="<b>"+x[2]+"</b>"+x[1];a.onclick=function(e){e.preventDefault();x[0]?go(x[0]):scrollTo({top:0,behavior:B})};bb.appendChild(a)});d.body.appendChild(bb);
+var hero=$(".hero"),busy=false;
+function upd(){busy=false;hero.style.setProperty("--p",Math.min(1,scrollY/500));var on=$("#e1.on")?"":null;
+if($("#e2.on")){on="";["#problema","#guia","#plan","#referencias"].forEach(function(h){var t=$(h);if(t.getBoundingClientRect().top<200)on=h})}
+$$("a",bb).forEach(function(a){a.classList.toggle("on",on!==null&&a.dataset.h===on)});
+$$(".pc").forEach(function(b){b.classList.toggle("on",$("#"+b.dataset.t.replace("t","e")).classList.contains("on"))})}
+addEventListener("scroll",function(){if(!busy){busy=true;requestAnimationFrame(upd)}},{passive:true});d.addEventListener("click",function(){setTimeout(upd,150)});upd();
+/* inclinación de tarjetas */
+if(matchMedia("(hover:hover)").matches&&!rm)d.addEventListener("pointermove",function(e){var c=e.target.closest&&e.target.closest(".card,.stat,.pc");if(!c)return;var r=c.getBoundingClientRect();c.style.setProperty("--ry",((e.clientX-r.left)/r.width-.5)*8+"deg");c.style.setProperty("--rx",(.5-(e.clientY-r.top)/r.height)*8+"deg")});
+/* galería */
+var gi=$$("#gal img"),lb=$("#lb"),li=$("img",lb),k=0,ui=d.createElement("div");ui.innerHTML='<button class="lp" aria-label="Anterior">‹</button><button class="ln" aria-label="Siguiente">›</button><button class="lx" aria-label="Cerrar">×</button><div class="lc"></div>';lb.appendChild(ui);
+function op(i){k=(i+gi.length)%gi.length;li.src=gi[k].src;li.alt=gi[k].alt;li.classList.remove("z");$(".lc",lb).textContent=(k+1)+" / "+gi.length+" · "+gi[k].parentNode.querySelector("figcaption").textContent;lb.classList.add("on")}
+gi.forEach(function(im,i){im.parentNode.onclick=function(){op(i)}});
+$(".lp",lb).onclick=function(e){e.stopPropagation();op(k-1)};$(".ln",lb).onclick=function(e){e.stopPropagation();op(k+1)};$(".lx",lb).onclick=function(e){e.stopPropagation();lb.classList.remove("on")};
+li.onclick=function(e){e.stopPropagation();li.classList.toggle("z")};
+addEventListener("keydown",function(e){if(!lb.classList.contains("on"))return;if(e.key==="ArrowLeft")op(k-1);if(e.key==="ArrowRight")op(k+1)});
+var sx=0;lb.addEventListener("touchstart",function(e){sx=e.touches[0].clientX},{passive:true});lb.addEventListener("touchend",function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)op(k+(dx<0?1:-1))});
 })();
 </script>
 </body></html>
