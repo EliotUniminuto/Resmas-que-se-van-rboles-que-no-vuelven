@@ -24,8 +24,20 @@ p,li{max-width:72ch}a{color:var(--teal);text-underline-offset:3px}
 .brand{font:800 1rem "Bricolage Grotesque",sans-serif;margin-right:auto}
 .pill,.tabs button,.theme{font:600 .92rem "Source Sans 3",sans-serif;border:1.5px solid var(--teal);background:transparent;color:var(--teal);padding:7px 15px;border-radius:999px;cursor:pointer;text-decoration:none;white-space:nowrap}
 .tabs{display:flex;gap:6px}.tabs button[aria-selected="true"]{background:var(--teal);color:var(--bg)}
-.chips{max-width:980px;margin:6px auto 0;display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
-.chips a{font-size:.85rem;border:1px solid var(--line);border-radius:999px;padding:3px 12px;text-decoration:none;color:var(--mut);white-space:nowrap;background:var(--card)}
+.chips{max-width:980px;margin:6px auto 0;display:flex;gap:8px;align-items:center;overflow-x:auto;padding:4px 2px 6px;scrollbar-width:thin}
+.chips .grp{flex:none;font:700 .72rem "Bricolage Grotesque",sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);padding:0 4px 0 8px;border-left:3px solid var(--sun)}
+.chips a{flex:none;position:relative;font-size:.88rem;font-weight:600;text-decoration:none;color:var(--ink);background:var(--card);border:1.5px solid var(--line);padding:4px 14px 4px 28px;border-radius:6px 14px 6px 14px;white-space:nowrap;transition:transform .2s,background .2s,border-color .2s,box-shadow .2s}
+.chips a::before{content:"";position:absolute;left:9px;top:50%;width:12px;height:12px;margin-top:-6px;background:var(--leaf);border-radius:0 100% 0 100%;transform:rotate(0);transition:transform .35s}
+.chips a:hover,.chips a:focus-visible{background:var(--soft);border-color:var(--leaf);transform:translateY(-2px);box-shadow:0 4px 10px rgba(14,90,82,.18)}
+.chips a:hover::before,.chips a:focus-visible::before{transform:rotate(90deg) scale(1.25)}
+.chips a:active{transform:translateY(0)}
+.tabs button,.theme,.btn{transition:transform .2s,background .2s,box-shadow .2s}
+.tabs button:hover,.theme:hover{background:var(--leaf);color:#12302c;border-color:var(--leaf);transform:translateY(-2px)}
+.tabs button[aria-selected="true"]:hover{background:var(--teal);color:var(--bg)}
+.btn:hover{transform:translateY(-2px) rotate(-1deg);box-shadow:0 6px 14px rgba(255,210,63,.45)}
+.card{transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-3px);border-color:var(--leaf);box-shadow:0 8px 18px rgba(14,90,82,.12)}
+@media (prefers-reduced-motion:reduce){.chips a,.chips a::before,.tabs button,.theme,.btn,.card{transition:none}.chips a:hover,.card:hover,.btn:hover,.tabs button:hover{transform:none}}
 .hero{background:linear-gradient(135deg,#0e5a52,#0a3f3a);color:#fff;padding:44px 20px 70px;position:relative;overflow:hidden}
 .hero::after{content:"";position:absolute;right:-80px;bottom:-120px;width:360px;height:360px;border-radius:50%;background:rgba(143,209,79,.18)}
 .in{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center;position:relative;z-index:1}
@@ -76,14 +88,65 @@ tr:last-child td{border:0}td:first-child{font-weight:700;color:var(--teal);white
 .chain span{background:var(--soft);border:1.5px solid var(--leaf);border-radius:999px;padding:5px 14px;font-weight:600;font-size:.92rem}.chain i{font-style:normal;color:var(--teal)}
 .refs p{padding-left:2em;text-indent:-2em;margin:.8em 0}
 footer{text-align:center;color:var(--mut);font-size:.9rem;padding:24px 20px 40px;border-top:1px solid var(--line)}
+
+/* ===== UI v2: papel + hojas ===== */
+body{background-image:radial-gradient(circle at 15% 8%,rgba(143,209,79,.13),transparent 38%),radial-gradient(circle at 92% 55%,rgba(255,210,63,.10),transparent 34%),url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 .3 0 0 0 0 .4 0 0 0 0 .3 0 0 0 .06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+#pg{position:fixed;top:0;left:0;right:0;height:4px;z-index:70;background:linear-gradient(90deg,var(--leaf),var(--sun));transform:scaleX(0);transform-origin:0 50%}
+.tabs{background:var(--soft);padding:4px;border-radius:999px;border:1.5px solid var(--line)}.tabs button{border:0;padding:6px 16px}
+.chips a.act{background:var(--teal);color:var(--bg);border-color:var(--teal)}.chips a.act::before{background:var(--sun)}
+h2{position:relative}h2 .n{border-radius:4px 50% 4px 50%;box-shadow:0 4px 0 rgba(14,90,82,.18)}
+h2::after{content:"";position:absolute;left:52px;bottom:-10px;width:64px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--leaf),transparent)}
+.rt{display:inline-block;margin:-4px 0 10px;font-size:.85rem;font-weight:600;color:var(--teal);background:var(--soft);padding:3px 12px;border-radius:999px}
+.entry.on{animation:fi .5s both}@keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.card{position:relative;box-shadow:0 2px 0 rgba(14,90,82,.06)}
+.card::after{content:"";position:absolute;top:0;right:0;width:24px;height:24px;border-radius:0 18px 0 10px;background:linear-gradient(225deg,var(--bg) 50%,var(--soft) 50%);box-shadow:-2px 2px 4px rgba(0,0,0,.07)}
+.q{position:relative;padding-left:52px}.q::before{content:"“";position:absolute;left:14px;top:-2px;font:800 3.4rem "Bricolage Grotesque",serif;color:var(--leaf);line-height:1}
+.stat{transition:transform .25s}.stat:hover{transform:translateY(-4px) rotate(-.6deg)}
+.hero .in>div>*{animation:up .7s both}.hero .in>div>*:nth-child(2){animation-delay:.1s}.hero .in>div>*:nth-child(3){animation-delay:.2s}.hero .in>div>*:nth-child(4){animation-delay:.3s}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.fl{position:absolute;top:-30px;width:14px;height:14px;background:var(--leaf);border-radius:0 100% 0 100%;opacity:0;z-index:0;animation:fall linear infinite}
+@keyframes fall{0%{opacity:0;transform:translate(0,0) rotate(0)}10%{opacity:.6}90%{opacity:.5}100%{opacity:0;transform:translate(50px,520px) rotate(400deg)}}
+html.js .rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}html.js .rv.vis{opacity:1;transform:none}
+details{transition:box-shadow .25s,border-color .25s}details[open]{border-color:var(--leaf);box-shadow:0 8px 20px rgba(14,90,82,.08)}
+summary{list-style:none;display:flex;justify-content:space-between;align-items:center}summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:700 1.5rem/1 "Bricolage Grotesque",sans-serif;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:var(--soft);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg);background:var(--leaf);color:#12302c}
+details[open] dl,details[open]>p{animation:fi .4s both}
+details dl{display:grid;grid-template-columns:150px 1fr;gap:4px 20px}details dt{margin:0;padding-top:.7em;font:700 .78rem "Bricolage Grotesque",sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--teal)}details dd{padding:.55em 0;border-bottom:1px dashed var(--line);color:var(--ink)}
+@media (max-width:720px){details dl{grid-template-columns:1fr}details dt{padding-bottom:0}details dd{border:0}}
+.tl{list-style:none;margin:18px 0 8px;padding:0;display:grid;grid-template-columns:repeat(8,1fr)}
+.tl li{position:relative;text-align:center}.tl li::before{content:"";position:absolute;top:19px;left:-50%;width:100%;height:3px;background:var(--line)}.tl li:first-child::before{display:none}.tl li.done::before,.tl li.now::before{background:var(--leaf)}
+.tl button{position:relative;background:none;border:0;color:var(--ink);cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;width:100%;padding:0 2px}
+.tl i{font:800 .95rem "Bricolage Grotesque",sans-serif;font-style:normal;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:3px solid var(--line);transition:transform .25s}
+.tl li.done i{background:var(--leaf);border-color:var(--leaf);color:#12302c}.tl li.now i{background:var(--sun);border-color:var(--sun);color:#12302c;animation:pl 1.8s infinite}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(255,210,63,.7)}100%{box-shadow:0 0 0 14px rgba(255,210,63,0)}}
+.tl button:hover i{transform:scale(1.15)}.tl b{font-size:.82rem;line-height:1.2}.tl small{font-size:.72rem;color:var(--mut)}
+@media (max-width:720px){.tl{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:96px;overflow-x:auto;padding-bottom:10px}}
+tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--soft) 45%,var(--card))}td:first-child{position:sticky;left:0;background:var(--card)}th:first-child{position:sticky;left:0}
+tbody tr:first-child td:first-child{box-shadow:inset 4px 0 var(--leaf)}tbody tr:nth-child(2) td:first-child{box-shadow:inset 4px 0 var(--sun)}
+tbody tr{transition:background .3s}tr.hl td{background:var(--ph)!important}
+#rail{position:fixed;left:20px;top:50%;transform:translateY(-50%);display:none;flex-direction:column;gap:16px;z-index:35}
+#rail a{width:12px;height:12px;border-radius:0 100% 0 100%;background:var(--line);position:relative;transition:transform .3s,background .3s}
+#rail a.act{background:var(--leaf);transform:scale(1.6) rotate(90deg)}#rail a:hover{background:var(--teal)}
+#rail a::after{content:attr(data-l);position:absolute;left:22px;top:50%;transform:translateY(-50%) rotate(-90deg) scale(.625);transform-origin:left center;background:var(--teal);color:var(--bg);font:600 .8rem "Source Sans 3",sans-serif;padding:3px 10px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
+#rail a:hover::after,#rail a:focus-visible::after{opacity:1}
+@media (min-width:1240px){#rail{display:flex}}
+#up{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:46px;height:46px;border-radius:50%;border:0;background:var(--leaf);color:#12302c;font-size:1.3rem;font-weight:800;cursor:pointer;box-shadow:0 6px 16px rgba(14,90,82,.3);opacity:0;transform:translateY(16px);pointer-events:none;transition:.3s;z-index:45}
+#up.on{opacity:1;transform:none;pointer-events:auto}#up:hover{background:var(--sun)}
+@media (max-width:600px){.brand{display:none}.bar{justify-content:space-between}}
+@media (prefers-reduced-motion:reduce){html.js .rv{opacity:1;transform:none;transition:none}.fl{display:none}.entry.on,.hero .in>div>*,details[open] dl{animation:none}.tl li.now i{animation:none}}
 </style>
+<script>document.documentElement.className+=" js"</script>
 </head>
 <body>
 <header class="top"><div class="bar">
   <span class="brand">Menos papel, más conciencia</span>
   <nav class="tabs" role="tablist" aria-label="Entradas del blog"><button role="tab" id="t1" aria-selected="true" aria-controls="e1">Entrada 1</button><button role="tab" id="t2" aria-selected="false" aria-controls="e2">Entrada 2</button></nav>
   <button class="theme" id="theme" aria-label="Cambiar tema claro u oscuro">◐ Tema</button></div>
-  <div class="chips" id="chips" hidden><a href="#problema">Problemática</a><a href="#territorio">Territorio</a><a href="#guia">Guía multidimensional</a><a href="#objetivos">Objetivos</a><a href="#plan">Plan de trabajo</a><a href="#seguimiento">Seguimiento</a><a href="#justificacion">Justificación</a><a href="#referencias">Referencias</a></div>
+  <nav class="chips" id="chips" aria-label="Ir a una sección">
+    <span class="grp">Entrada 1</span><a href="#e1-que">Qué es</a><a href="#e1-rsu">RSU</a><a href="#e1-ruta">Mi ruta</a><a href="#e1-video">Video</a>
+    <span class="grp">Entrada 2</span><a href="#problema">Problemática</a><a href="#territorio">Territorio</a><a href="#guia">Guía</a><a href="#objetivos">Objetivos</a><a href="#plan">Plan</a><a href="#seguimiento">Seguimiento</a><a href="#justificacion">Justificación</a><a href="#recursos">Recursos</a><a href="#referencias">Referencias</a>
+  </nav>
 </header>
 
 <section class="hero"><div class="in">
@@ -107,19 +170,19 @@ footer{text-align:center;color:var(--mut);font-size:.9rem;padding:24px 20px 40px
 <article class="entry on" id="e1" role="tabpanel" aria-labelledby="t1">
   <h2><span class="n">1</span>«Menos papel, más conciencia»: arranca mi práctica</h2>
   <p class="lead">Un blog para entender el contexto, reconocer una problemática social y construir soluciones con las personas que la viven.</p>
-  <h3>¿De qué trata este blog?</h3>
+  <h3 id="e1-que">¿De qué trata este blog?</h3>
   <p>Presento la primera parte de mi Proyecto Social de Formación en UNIMINUTO: comprender el contexto de las personas, la comunidad y el territorio donde haré mi práctica, reconocer una problemática desde una mirada multidimensional y relacionarla con la responsabilidad social universitaria para co-construir soluciones.</p>
   <p>Mi territorio es cercano y cotidiano: <strong>la oficina OPAM del Aeropuerto Internacional Matecaña</strong>, en Pereira, donde trabajan unas 40 personas del área administrativa. Cada día, ellas deciden cómo usar y desechar recursos; esas decisiones, multiplicadas por miles de organizaciones, tienen efectos sociales y ambientales reales.</p>
-  <h3>¿Qué es la responsabilidad social universitaria?</h3>
+  <h3 id="e1-rsu">¿Qué es la responsabilidad social universitaria?</h3>
   <p>Es el compromiso de poner el conocimiento al servicio de las comunidades y responder por los impactos de lo que hacemos. En UNIMINUTO se concreta en los Proyectos Sociales de Formación: el estudiante dialoga con un territorio, identifica una necesidad y construye con otros una respuesta. Se apoya en la innovación social, que parte de un problema real y de la participación de los afectados (Pacheco Duarte et al., 2022), y en la mirada interdisciplinar, porque los fenómenos sociales rara vez tienen una sola causa (Reyna Cruz et al., 2019).</p>
-  <h3>Mi ruta: Ver, Juzgar, Actuar</h3>
+  <h3 id="e1-ruta">Mi ruta: Ver, Juzgar, Actuar</h3>
   <div class="cards">
    <div class="card"><b>👁 Ver</b>Observo la oficina y registro cuánto papel se usa y cómo se desecha.</div>
    <div class="card"><b>⚖ Juzgar</b>Analizo los datos con teoría y fuentes confiables: por qué ocurre y a quién afecta.</div>
    <div class="card"><b>🌱 Actuar</b>Diseño con mis compañeros acciones para reducir, reutilizar y reciclar.</div></div>
   <h3>Preguntas que guían mi trabajo</h3>
   <div class="q"><p>¿Qué problemáticas sociales se identifican en el contexto local y cómo afectan a las comunidades involucradas?</p><p>¿Cómo las problemáticas evidenciadas en la práctica social revelan necesidades de intervención desde la responsabilidad social?</p></div>
-  <h3>Para ver</h3>
+  <h3 id="e1-video">Para ver</h3>
   <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/NS2SiXSILvU" title="Las hojas de papel y tu papel para frenar la deforestación (Fundación Grupo EPM, 2022)" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
   <p><strong>Las hojas de papel y tu papel para frenar la deforestación</strong> (Fundación Grupo EPM, 2022). Explica por qué el papel contribuye a la degradación del ambiente. Lo elegí porque habla de lo mismo que mi proyecto: detrás de cada hoja que imprimimos hay recursos naturales, y cuidarla empieza por decisiones simples de consumo. <a href="https://www.youtube.com/watch?v=NS2SiXSILvU" target="_blank" rel="noopener">Ver en YouTube</a></p>
   <p style="margin-top:20px">En la entrada 2 presento la problemática, el territorio, la guía multidimensional, los objetivos y el plan de trabajo.</p>
@@ -134,7 +197,7 @@ footer{text-align:center;color:var(--mut);font-size:.9rem;padding:24px 20px 40px
   <div class="cards">
    <div class="card"><b>Problemática 1</b>Alto consumo de papel por hábitos de impresión y falta de lineamientos internos.</div>
    <div class="card"><b>Problemática 2</b>Ausencia de separación en la fuente y de una ruta para entregar el papel a recicladores.</div></div>
-  <p>Es un problema de <strong>cultura organizacional y corresponsabilidad</strong>: se desperdicia un recurso que podría tener segunda vida y generar ingresos para recicladores de oficio. Sus efectos son ambientales (más presión sobre bosques, agua y energía), económicos (costos de resmas y tóner, <span class="ph">[costo mensual: por averiguar]</span>), sociales y culturales (se normaliza el desperdicio).</p>
+  <p>Es un problema de <strong>cultura organizacional y corresponsabilidad</strong>: se desperdicia un recurso que podría tener segunda vida y generar ingresos para recicladores de oficio. Sus efectos son ambientales (más presión sobre bosques, agua y energía), económicos (costos de resmas y tóner, costo mensual que calcularé en la semana 3 con las facturas de compra), sociales y culturales (se normaliza el desperdicio).</p>
 
   <h2 id="territorio"><span class="n">📍</span>El territorio</h2>
   <p>La práctica se realiza en la <strong>oficina principal de OPAM</strong>, en el Aeropuerto Internacional Matecaña (Pereira, Risaralda). Es una empresa concesionaria dedicada al mejoramiento y la administración del aeropuerto; sus 40 trabajadores son personal administrativo, y ellos son la comunidad participante. Hoy no existe recolección selectiva.</p>
@@ -148,47 +211,40 @@ footer{text-align:center;color:var(--mut);font-size:.9rem;padding:24px 20px 40px
 
   <iframe class="mapframe" title="Mapa del Aeropuerto Internacional Matecaña, Pereira" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Aeropuerto+Internacional+Mateca%C3%B1a+Pereira&output=embed"></iframe>
   <h2 id="guia"><span class="n">3</span>Guía multidimensional</h2>
-  <p>Cada problemática se mira en tres escalas (local, nacional y latinoamericana) y con sus causas y efectos. <span class="ph">[Complemente con cifras de DANE, Superservicios o informes que consulte]</span></p>
+  <p>Cada problemática se mira en tres escalas (local, nacional y latinoamericana) y con sus causas y efectos. Las cifras vienen de fuentes oficiales y las uso como orden de magnitud; las estimaciones locales son propias y las validaré con el diagnóstico.</p>
   <details open><summary>Problemática 1 · Alto consumo de papel</summary><dl>
-   <dt>Local</dt><dd>En OPAM se usan de 4 a 5 resmas al mes, sin política de impresión a doble cara ni de digitalización de formatos.</dd>
-   <dt>Nacional</dt><dd>El consumo de papel en las oficinas colombianas se enmarca en la política de gestión integral de residuos, que prioriza prevenir y reducir antes que disponer (DNP, 2016).</dd>
-   <dt>Latinoamericano</dt><dd>La región enfrenta el reto de pasar de un modelo lineal de consumo a uno circular, como plantea el ODS 12 (Naciones Unidas, 2015).</dd>
-   <dt>Causas</dt><dd>Históricas: cultura del documento impreso en la administración. Socioculturales: hábito de imprimir «por si acaso». Políticas y económicas: ausencia de lineamientos internos y bajo costo percibido del papel.</dd>
-   <dt>Efectos</dt><dd>Sociales y culturales: se normaliza el desperdicio. Ambientales: mayor presión sobre recursos naturales. Políticos: se incumple el compromiso de sostenibilidad que se espera de una empresa concesionaria.</dd></dl></details>
+   <dt>Local</dt><dd>En OPAM se usan de 4 a 5 resmas al mes (110 a 140 kg al año, estimación propia), sin lineamientos de impresión a doble cara ni de digitalización. En Risaralda, el relleno La Glorita tiene cerca de cinco años de vida útil (MVCT, 2024a).</dd>
+   <dt>Nacional</dt><dd>En 2024 se generaron unos 15,14 millones de toneladas de residuos y solo el 20 % se aprovechó (MVCT, 2026); 12,1 millones se dispusieron en rellenos (SSPD, 2025). La política de «cero papel» obliga al sector público, no a concesionarias privadas (Presidencia de la República, 2012), y el CONPES 3874 prioriza prevenir y reducir (DNP, 2016).</dd>
+   <dt>Latinoamericano y global</dt><dd>La producción mundial de papel y cartón fue de 401 millones de toneladas en 2023, un 3 % menos que el año anterior, y los papeles gráficos cayeron a su cifra más baja desde 1987 (FAO, 2024): otras organizaciones ya sustituyen lo impreso. En la región, el reto es pasar de un modelo lineal a uno circular, como plantea el ODS 12 (Naciones Unidas, 2015).</dd>
+   <dt>Causas</dt><dd>Históricas: la cultura del documento impreso como prueba de formalidad, aun después de la Ley 527 de 1999. Socioculturales: imprimir «por si acaso» y el desperdicio invisible. Políticas: no hay lineamientos ni responsable del seguimiento. Económicas: el papel es barato y la multifuncional compartida no muestra el costo. Son hipótesis que validaré con el personal (Reyna Cruz et al., 2019).</dd>
+   <dt>Efectos</dt><dd>Sociales y culturales: se normaliza el desperdicio. Ambientales: reciclar una tonelada de papel ahorra de 12 a 14 árboles, cerca del 70 % de la energía y el 80 % del agua (MITECO, s. f.). Políticos: brecha entre el discurso de sostenibilidad y la práctica de una concesionaria con licencia ambiental (ANLA, 2018).</dd></dl></details>
   <details><summary>Problemática 2 · Sin separación en la fuente ni reciclaje</summary><dl>
-   <dt>Local</dt><dd>El papel usado se mezcla con otros residuos en la oficina; no hay puntos ecológicos ni ruta de entrega a un gestor.</dd>
-   <dt>Nacional</dt><dd>La Resolución 2184 de 2019 establece el código de colores (blanco, negro y verde) para separar en la fuente (Ministerio de Ambiente, 2019); el aprovechamiento depende del trabajo de los recicladores de oficio, población con protección especial por la jurisprudencia y la regulación.</dd>
-   <dt>Latinoamericano</dt><dd>En la región, el reciclaje se sostiene en buena parte en recicladores de base, y su inclusión formal sigue siendo un desafío de política pública.</dd>
-   <dt>Causas</dt><dd>Falta de infraestructura y de información, escasa educación ambiental y poca articulación entre empresas y recicladores.</dd>
-   <dt>Efectos</dt><dd>Se pierde material aprovechable, aumentan los residuos que van a disposición final y se desaprovecha la oportunidad de generar ingreso para recicladores.</dd></dl></details>
-  <details><summary>Emociones y percepciones durante la indagación</summary><p><span class="ph">[Escriba 1 párrafo en primera persona: qué sintió al ver el papel desechado (preocupación, empatía, responsabilidad) y cómo cambió su mirada sobre su propio lugar de trabajo.]</span></p></details>
+   <dt>Local</dt><dd>El papel usado va a las mismas canecas que los demás residuos; no hay puntos ecológicos ni ruta de entrega. Pereira tiene cinco organizaciones de recicladores de oficio y hay un precedente: una entidad judicial contrató la recolección con la Asociación de Recuperadores Punto Verde (Consejo Superior de la Judicatura, s. f.). La Glorita recibe unas 800 toneladas diarias (UTP, 2024) y sus lixiviados han afectado el río Otún (Zapata Zapata, s. f.).</dd>
+   <dt>Nacional</dt><dd>La Resolución 2184 de 2019 fija el código de colores blanco, negro y verde (Ministerio de Ambiente y Desarrollo Sostenible, 2019) y el Decreto 596 de 2016 reconoce a los recicladores de oficio como población con protección especial (MVCT, 2016). Las organizaciones en formalización reportaron cerca del 95 % de lo aprovechado (SSPD, 2024) y el papel y cartón fueron el 51,74 % de lo aprovechable (MVCT, s. f.).</dd>
+   <dt>Latinoamericano</dt><dd>Más de dos millones de recicladores de base aportan más del 50 % del material recuperado, y de más de 230 millones de toneladas anuales se recicla menos del 5 % (BID, s. f.-b). Su inclusión formal sigue siendo un desafío de política pública.</dd>
+   <dt>Causas</dt><dd>Históricas: el reciclaje nació de la informalidad y la exclusión. Socioculturales: poca educación ambiental y estigma hacia el oficio. Políticas: competencias dispersas entre municipio, empresa de aseo y recicladores. Económicas: con volúmenes pequeños, recolectar rinde poco.</dd>
+   <dt>Efectos</dt><dd>Sociales: cada kilo no recuperado es un ingreso que no llega a un reciclador. Culturales: se piensa que el residuo «desaparece» al salir de la caneca. Ambientales: se pierde materia prima y se presiona un relleno escaso. Políticos: se incumple en la práctica la norma de separación.</dd></dl></details>
+  <details><summary>Emociones y percepciones durante la indagación</summary><p>Lo primero que sentí fue incomodidad: lo que fotografié en mi lugar de trabajo, una caneca con hojas apenas usadas y una impresora que no para, es un hábito que yo también he reproducido sin cuestionarlo. Esa incomodidad se volvió preocupación al leer que La Glorita tiene cerca de cinco años de vida útil, y empatía al entender que el 20 % que se aprovecha en Colombia se sostiene sobre el trabajo de los recicladores de oficio: un papel en una caneca mezclada es también un ingreso que no llega a alguien.</p><p>Pasé de observar el problema a sentirme parte de él y de su solución. También aprendí humildad: lo que cambie en la oficina no depende de mí solo, sino de construirlo escuchando a mis compañeros.</p></details>
 
   <h2 id="objetivos"><span class="n">4</span>Objetivos</h2>
   <h3>Objetivo general</h3>
-  <p>Implementar, con el personal administrativo de la oficina OPAM del Aeropuerto Internacional Matecaña, una estrategia participativa de reducción del consumo de papel y de reciclaje, que fortalezca la cultura de responsabilidad ambiental y social y articule el material aprovechable con una organización de recicladores.</p>
+  <p>Implementar, con el personal administrativo de la oficina OPAM del Aeropuerto Internacional Matecaña, una estrategia participativa de reducción del consumo de papel y de reciclaje, que fortalezca la cultura de responsabilidad ambiental y social, con la meta de reducir al menos 10 % las hojas impresas frente a la línea de base y lograr, en 8 semanas, una primera entrega de papel aprovechable a una organización de recicladores de oficio.</p>
   <h3>Objetivos específicos</h3>
   <ol><li>Diagnosticar el consumo de resmas y las prácticas de desecho mediante observación, registro y encuesta.</li><li>Identificar con el personal las causas y barreras del uso excesivo de papel y de la falta de reciclaje.</li><li>Desarrollar sesiones de sensibilización sobre reducción, reutilización y separación en la fuente.</li><li>Establecer puntos de separación y una ruta de entrega del papel a un gestor o asociación de recicladores.</li><li>Evaluar resultados comparando consumo y papel recuperado antes y después, y socializar aprendizajes.</li></ol>
 
   <h2 id="plan"><span class="n">5</span>Plan de trabajo</h2>
   <div class="cards">
-   <div class="card"><b>Actividad</b>Oficina OPAM: menos papel, más reciclaje</div>
+   <div class="card"><b>Actividad</b>Resmas que se van, árboles que no vuelven: menos papel, más reciclaje en la oficina OPAM</div>
    <div class="card"><b>Objetivo central</b>Iniciar un proceso participativo para reducir al menos 10 % las hojas impresas y hacer una primera entrega de papel a recicladores, en 8 semanas.</div>
-   <div class="card"><b>Línea temática</b><span class="ph">[según su Proyecto Social de Formación]</span></div></div>
-  <div class="scroll"><table><thead><tr><th>Semana</th><th>Acción</th><th>Duración</th><th>Estrategia</th><th>Canal</th><th>Responsable</th><th>Recursos</th><th>Indicador</th></tr></thead><tbody>
-   <tr><td>1</td><td>Reconocer el contexto y reunirse con el interlocutor</td><td>2 h</td><td>Diálogo y recorrido de la oficina</td><td>Presencial</td><td>Estudiante</td><td>—</td><td>1 acta de reunión</td></tr>
-   <tr><td>2</td><td>Diagnóstico: conteo de resmas, fotos y encuesta</td><td>3 h</td><td>Registro de datos y observación</td><td>Presencial y virtual</td><td>Estudiante</td><td>—</td><td>20 encuestas; línea de base</td></tr>
-   <tr><td>3</td><td>Averiguar costos y taller de causas (árbol de problemas)</td><td>2 h</td><td>Taller participativo</td><td>Presencial</td><td>Estudiante e interlocutor <span class="ph">[nombre]</span></td><td>Facturas de compra, sala, marcadores</td><td>12 participantes; costo mensual calculado; 1 árbol de problemas</td></tr>
-   <tr><td>4</td><td>Acordar medidas: impresión a doble cara y digitalización</td><td>2 h</td><td>Co-construcción con líderes de área</td><td>Presencial</td><td>Estudiante e interlocutor</td><td>Computador, ayuda de TI</td><td>1 acuerdo; 2 medidas adoptadas</td></tr>
-   <tr><td>5</td><td>Sensibilización: charla de 30 min y piezas gráficas</td><td>3 h</td><td>Educación ambiental</td><td>Presencial y correo</td><td>Estudiante</td><td>Video beam, afiches, listas de asistencia</td><td>15 personas asistentes</td></tr>
-   <tr><td>6</td><td>Instalar puntos ecológicos y contactar un gestor o recicladores</td><td>4 h</td><td>Alianza con recicladores de la zona</td><td>Presencial</td><td>Estudiante, servicios generales</td><td>Contenedores, señalización, balanza</td><td>1 punto instalado; 1 contacto con recicladores</td></tr>
-   <tr><td>7</td><td>Operación y pesaje semanal del papel</td><td>2 h</td><td>Seguimiento y ajustes</td><td>Presencial</td><td>Estudiante</td><td>Balanza, formato de registro</td><td>Kg de papel recuperado</td></tr>
-   <tr><td>8</td><td>Medición final, cierre y entrada final del blog</td><td>3 h</td><td>Comparar antes y después</td><td>Presencial y virtual</td><td>Estudiante e interlocutor</td><td>Encuesta final</td><td>10 % de reducción (meta) y 1 primera entrega</td></tr>
-  </tbody></table></div>
+   <div class="card"><b>Línea temática</b>Sostenibilidad ambiental y economía circular: reducción, reutilización y reciclaje de papel. Medio de difusión: este blog.</div></div>
+  <div class="scroll"><table><thead><tr><th>Semana</th><th>Acción</th><th>Duración / estado</th><th>Estrategia</th><th>Canal</th><th>Responsable</th><th>Recursos</th><th>Indicador</th></tr></thead><tbody><tr><td>1 <small>(26–30 oct.)</small></td><td>Sesión 1 (realizada): reconocimiento del contexto, identificación de la problemática y registro fotográfico</td><td>Ejecutada</td><td>Recorrido y observación directa; registro de evidencias</td><td>Presencial</td><td>Estudiante</td><td>Celular (cámara), cuaderno de campo</td><td>4 evidencias fotográficas; 2 problemáticas</td></tr><tr><td>2 <small>(2–6 nov.)</small></td><td>Sesión 2 (en curso): reunión de encuadre con el interlocutor y diagnóstico: conteo de resmas, contadores de la multifuncional y encuesta de hábitos</td><td>En curso</td><td>Diálogo con el interlocutor, línea de base y verificación de condiciones tras el sismo de agosto de 2026</td><td>Presencial y virtual (formulario)</td><td>Estudiante; interlocutor Jhony Uparela</td><td>Formulario digital, contadores, registro de resmas</td><td>Línea de base; 20 encuestas (50 % del personal)</td></tr><tr><td>3 <small>(9–13 nov.)</small></td><td>Sesión 3: costo mensual de papel y tóner (facturas) y taller del árbol de problemas</td><td>3 h</td><td>Taller participativo (ruta de innovación social)</td><td>Presencial (sala de reuniones)</td><td>Estudiante (facilita); Jhony Uparela (convoca)</td><td>Sala, marcadores, papel reutilizado, facturas; apoyo de compras</td><td>12 participantes (30 %); 1 árbol de problemas; costo calculado</td></tr><tr><td>4 <small>(16–20 nov.)</small></td><td>Sesión 4: acuerdo de medidas: doble cara por defecto, escala de grises y digitalización de formatos</td><td>2 h</td><td>Co-construcción con líderes de área; 3 formatos priorizados</td><td>Presencial</td><td>Estudiante; Jhony Uparela; apoyo de TI</td><td>Computador, TI, acta de acuerdos</td><td>1 acuerdo; 2 medidas adoptadas</td></tr><tr><td>5 <small>(23–27 nov.)</small></td><td>Sesión 5: sensibilización: charla de 30 min y piezas gráficas</td><td>3 h</td><td>Educación ambiental con datos propios de la oficina</td><td>Presencial y correo institucional</td><td>Estudiante; Jhony Uparela</td><td>Video beam, 2 piezas gráficas, listas de asistencia</td><td>15 asistentes (~40 %); 2 piezas difundidas</td></tr><tr><td>6 <small>(30 nov.–4 dic.)</small></td><td>Sesión 6: puntos ecológicos (blanco, negro, verde) y contacto con una organización de recicladores de oficio</td><td>4 h</td><td>Alianza con una organización censada, identificada con la Alcaldía o la Empresa de Aseo</td><td>Presencial y telefónico</td><td>Estudiante; servicios generales; Jhony Uparela</td><td>2 puntos ecológicos señalizados, balanza, formato de acta</td><td>1 punto instalado; 1 acuerdo inicial con recicladores</td></tr><tr><td>7 <small>(7–11 dic.)</small></td><td>Sesión 7: operación de la ruta y pesaje semanal del papel y otros aprovechables</td><td>2 h</td><td>Seguimiento y ajustes con retroalimentación</td><td>Presencial</td><td>Estudiante; servicios generales</td><td>Balanza, registro, constancia de entrega</td><td>Kg de papel recuperado y entregado por semana</td></tr><tr><td>8 <small>(14–18 dic.)</small></td><td>Sesión 8: medición final, socialización y cierre (entrada final del blog)</td><td>3 h</td><td>Comparación antes y después frente a la línea de base</td><td>Presencial y virtual</td><td>Estudiante; Jhony Uparela</td><td>Encuesta final, informe breve, video beam</td><td>10 % menos de hojas (meta); 1 primera entrega; 15 respuestas finales</td></tr></tbody></table></div>
   <h2 id="seguimiento"><span class="n">6</span>Seguimiento y evaluación</h2>
   <div class="cards">
-   <div class="card"><b>Indicadores</b>Resmas por mes, kg de papel recuperado, % de personal que participa, percepción en encuesta final.</div>
-   <div class="card"><b>Mecanismos</b>Registro semanal, reunión breve de ajuste con el interlocutor y comparación con la línea de base.</div>
-   <div class="card"><b>Mejora continua</b>Si una medida no funciona, se revisa en la reunión semanal y se ajusta el plan.</div></div>
+   <div class="card"><b>Indicadores</b>Hojas y resmas por semana (línea de base frente a medición final), kg de papel entregados, % de participación en encuesta, taller y charla, medidas adoptadas y percepción final.</div>
+   <div class="card"><b>Seguimiento</b>Bitácora semanal, reunión de 15 minutos con el interlocutor, lectura semanal de contadores, planilla de pesaje, constancia de entrega, listas de asistencia y fotos de cada sesión.</div>
+   <div class="card"><b>Evaluación</b>Meta mínima: diagnóstico completo, un punto ecológico y una primera entrega. Meta esperada: además, 10 % menos de hojas. Se ajustan con el interlocutor en la semana 3.</div>
+   <div class="card"><b>Mejora continua</b>Si una medida no funciona, se revisa en la reunión semanal y se ajusta (planear, hacer, verificar, ajustar), y se documentan lecciones para replicar.</div>
+   <div class="card"><b>Riesgos</b>Cambios de prioridades tras el sismo de agosto de 2026, baja participación, falta de una organización de recicladores disponible y volúmenes bajos (se amplía a cartón o se pacta entrega mensual).</div></div>
 
   <h2 id="justificacion"><span class="n">7</span>Justificación</h2>
   <p><strong>Social.</strong> La forma en que una organización consume y desecha expresa su responsabilidad con el entorno y las personas. Un sistema de reciclaje abre la posibilidad de vincular a recicladores de oficio y reconocer su labor, en línea con la dignidad humana (United Nations, 1948).</p>
@@ -206,13 +262,27 @@ footer{text-align:center;color:var(--mut);font-size:.9rem;padding:24px 20px 40px
 
   <h2 id="referencias"><span class="n">8</span>Referencias</h2>
   <div class="refs">
+   <p>Autoridad Nacional de Licencias Ambientales. (2018). <em>Autorizada modificación de licencia en aeropuerto de Pereira</em>. https://www.anla.gov.co/01_anla/index.php/noticias/1193-autorizada-modificacion-de-licencia-en-aeropuerto-de-pereira</p>
+   <p>Banco Interamericano de Desarrollo. (s. f.-b). [Entrada de blog sobre reciclaje y recicladores de base en América Latina y el Caribe]. <em>Blog Agua y Saneamiento</em>. https://blogs.iadb.org/agua/es/?p=6056</p>
+   <p>Consejo Superior de la Judicatura, Dirección Seccional de Administración Judicial Pereira–Risaralda. (s. f.). <em>Contrato de condiciones uniformes con la Asociación de Recuperadores Punto Verde</em>. https://ramajudicial.gov.co/documents/2340245/102288912/-+CONTRATO+DE+CONDICIONES+UNIFORMES.pdf/e9b94a20-659d-4ab6-9263-f2d428a862b0</p>
    <p>Departamento Nacional de Planeación. (2016). <em>Política nacional para la gestión integral de residuos sólidos</em> (Documento CONPES 3874). DNP.</p>
    <p>Fundación Grupo EPM. (2022, 11 de enero). <em>Las hojas de papel y tu papel para frenar la deforestación</em> [Video]. YouTube. https://www.youtube.com/watch?v=NS2SiXSILvU</p>
    <p>Ministerio de Ambiente y Desarrollo Sostenible. (2019). <em>Resolución 2184 de 2019</em>. Gobierno de Colombia.</p>
+   <p>Ministerio de Vivienda, Ciudad y Territorio. (s. f.). <em>Infografía Basura Cero</em>. https://minvivienda.gov.co/sites/default/files/documentos/infografia-basura_cero0_0.pdf</p>
+   <p>Ministerio de Vivienda, Ciudad y Territorio. (2016, 11 de abril). <em>Decreto 596 de 2016</em>. https://www.funcionpublica.gov.co/eva/gestornormativo/norma_pdf.php?i=69038</p>
+   <p>Ministerio de Vivienda, Ciudad y Territorio. (2024a, 3 de mayo). <em>Acta de asistencia técnica: Empresa de Aseo de Pereira</em>. SINAS. https://sinas.minvivienda.gov.co/SINAS/AsistenciaTecnica/Archivos/20240606132127_03-05-2024.%20Acta%20Empresa%20de%20Aseo%20de%20Pereira.pdf</p>
+   <p>Ministerio de Vivienda, Ciudad y Territorio. (2026). <em>Decreto 0772 de 2026</em>. https://minvivienda.gov.co/sites/default/files/normativa/decreto-0772-2026_compressed.pdf</p>
+   <p>Ministerio para la Transición Ecológica y el Reto Demográfico. (s. f.). <em>Papel y cartón: ¿por qué se debe gestionar adecuadamente?</em> https://www.miteco.gob.es/en/calidad-y-evaluacion-ambiental/temas/prevencion-y-gestion-residuos/flujos/domesticos/fracciones/papel-y-carton/por-que-debe-gestionar-adecuadamente.html</p>
    <p>Naciones Unidas. (2015). <em>Transformar nuestro mundo: la Agenda 2030 para el Desarrollo Sostenible</em> (A/RES/70/1). Asamblea General.</p>
+   <p>Organización de las Naciones Unidas para la Alimentación y la Agricultura. (2024, 10 de diciembre). <em>Global forest products facts and figures 2023 shows fall in global trade in wood and paper products</em>. https://sfcs.fao.org/newsroom/detail/global-forest-products-facts-and-figures-2023-shows-fall-in-global-trade-in-wood-and-paper-products/en</p>
    <p>Pacheco Duarte, J. F., et al. (2022). <em>Ruta de innovación social: Paso a paso para desarrollar innovaciones sociales</em> (Documento Técnico 02). Corporación Universitaria Minuto de Dios.</p>
+   <p>Presidencia de la República. (2012, 3 de abril). <em>Directiva Presidencial 04 de 2012: Eficiencia administrativa y lineamientos de la política cero papel en la administración pública</em>. https://www.apccolombia.gov.co/sites/default/files/normograma_files/Juridica/DIRECTPRES04_%202012.pdf</p>
    <p>Reyna Cruz, W. E., Carreón Corona, A. L., &amp; Armijo Mena, S. G. (2019). La interrelación de diferentes disciplinas para el abordaje científico de fenómenos y problemas sociales. <em>Revista Latinoamericana de Metodología de las Ciencias Sociales, 9</em>(2).</p>
-   <p>United Nations. (1948). <em>Universal declaration of human rights</em>. United Nations.</p></div>
+   <p>Superintendencia de Servicios Públicos Domiciliarios. (2024). <em>Informe sectorial de la actividad de aprovechamiento 2023</em>. https://superservicios.gov.co/sites/default/files/inline-files/Informe-Sectorial-de-la-Actividad-de-Aprovechamiento-2023.pdf</p>
+   <p>Superintendencia de Servicios Públicos Domiciliarios. (2025). <em>Informe nacional de disposición final de residuos sólidos en Colombia en el año 2024</em>. https://superservicios.gov.co/sites/default/files/2025-12/Informe-Nacional-de-Disposicion-Final-de-Residuos-Solidos-en-Combia-2024.pdf</p>
+   <p>United Nations. (1948). <em>Universal declaration of human rights</em>. United Nations.</p>
+   <p>Universidad Tecnológica de Pereira. (2024). <em>Cartilla Pacas Huerteras</em>. https://media2.utp.edu.co/oficinas/58/2024/08/Cartilla-Pacas-Huerteras.pdf</p>
+   <p>Zapata Zapata, E. (s. f.). <em>Las dos caras de la basura en el relleno sanitario La Glorita, Pereira</em>. Universidad Católica de Pereira. https://revistas.ucp.edu.co/index.php/grafias/article/download/1287/1298</p></div>
 </article>
 </main>
 <div id="lb" role="dialog" aria-label="Foto ampliada"><img alt=""></div>
@@ -220,14 +290,49 @@ footer{text-align:center;color:var(--mut);font-size:.9rem;padding:24px 20px 40px
 <script>
 (function(){
  var T=[["t1","e1"],["t2","e2"]],ch=document.getElementById("chips");
- function show(id,push){T.forEach(function(p){var on=p[1]===id;document.getElementById(p[1]).classList.toggle("on",on);document.getElementById(p[0]).setAttribute("aria-selected",on)});ch.hidden=id!=="e2";if(push){window.scrollTo({top:0});try{history.replaceState(null,"","#"+id)}catch(e){}}}
+ function show(id,push){T.forEach(function(p){var on=p[1]===id;document.getElementById(p[1]).classList.toggle("on",on);document.getElementById(p[0]).setAttribute("aria-selected",on)});if(push){window.scrollTo({top:0});try{history.replaceState(null,"","#"+id)}catch(e){}}}
  T.forEach(function(p){document.getElementById(p[0]).onclick=function(){show(p[1],true)}});
  document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){show(b.dataset.go,true)}});
+ document.querySelectorAll("#chips a").forEach(function(a){a.onclick=function(e){e.preventDefault();var t=document.querySelector(a.getAttribute("href"));if(!t)return;var en=t.closest(".entry");if(en&&!en.classList.contains("on"))show(en.id,false);setTimeout(function(){t.scrollIntoView({behavior:"smooth",block:"start"})},40)}});
  if(location.hash==="#e2")show("e2",false);
  document.getElementById("theme").onclick=function(){var r=document.documentElement,d=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.dataset.theme=d?"light":"dark"};
  var lb=document.getElementById("lb"),li=lb.querySelector("img");
  document.querySelectorAll("#gal img").forEach(function(i){i.parentNode.onclick=function(){li.src=i.src;li.alt=i.alt;lb.classList.add("on")}});
  lb.onclick=function(){lb.classList.remove("on")};document.onkeydown=function(e){if(e.key==="Escape")lb.classList.remove("on")};
+})();
+</script>
+<script>
+(function(){
+var d=document,$=function(s,c){return(c||d).querySelector(s)},$$=function(s,c){return[].slice.call((c||d).querySelectorAll(s))},rm=matchMedia("(prefers-reduced-motion:reduce)").matches,B=rm?"auto":"smooth";
+var pg=d.createElement("div");pg.id="pg";d.body.prepend(pg);
+var up=d.createElement("button");up.id="up";up.textContent="↑";up.setAttribute("aria-label","Volver arriba");up.onclick=function(){scrollTo({top:0,behavior:B})};d.body.appendChild(up);
+var rail=d.createElement("nav");rail.id="rail";rail.setAttribute("aria-label","Secciones de la entrada");d.body.appendChild(rail);
+var chips=$$("#chips a"),rf=null,last=null,busy=false;
+function build(en){rail.innerHTML="";chips.forEach(function(a){var t=$(a.getAttribute("href"));if(!t||t.closest(".entry").id!==en)return;var l=d.createElement("a");l.href=a.getAttribute("href");l.dataset.l=a.textContent;l.setAttribute("aria-label",a.textContent);l.onclick=function(e){e.preventDefault();t.scrollIntoView({behavior:B})};rail.appendChild(l)});rf=en}
+function tick(){busy=false;var y=scrollY,m=d.documentElement.scrollHeight-innerHeight;pg.style.transform="scaleX("+(m>0?y/m:0)+")";up.classList.toggle("on",y>600);
+var en=$(".entry.on").id;if(en!==rf)build(en);var cur=null;
+chips.forEach(function(a){var t=$(a.getAttribute("href"));if(t&&t.closest(".entry").id===en&&t.getBoundingClientRect().top<170)cur=a});
+chips.forEach(function(a){a.classList.toggle("act",a===cur)});
+$$("a",rail).forEach(function(l){l.classList.toggle("act",!!cur&&l.getAttribute("href")===cur.getAttribute("href"))});
+if(cur&&cur!==last){last=cur;var c=$("#chips");c.scrollTo({left:cur.getBoundingClientRect().left-c.getBoundingClientRect().left+c.scrollLeft-c.clientWidth/3,behavior:B})}}
+function req(){if(!busy){busy=true;requestAnimationFrame(tick)}}
+addEventListener("scroll",req,{passive:true});addEventListener("resize",req);d.addEventListener("click",function(){setTimeout(req,120)});tick();
+/* tiempo de lectura */
+$$(".entry").forEach(function(e){var w=e.textContent.trim().split(/\s+/).length,h=$("h2",e),s=d.createElement("div");s.className="rt";s.textContent="⏱ "+Math.max(1,Math.round(w/200))+" min de lectura";h.parentNode.insertBefore(s,h.nextSibling)});
+/* aparición al desplazarse */
+var els=$$(".entry h2,.entry h3,.lead,.card,.q,.bento figure,.map,details,.scroll,.chain,.vid,.mapframe,.refs,.entry>p,.entry li");
+if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("vis");io.unobserve(x.target)}})},{threshold:.12,rootMargin:"0px 0px -40px 0px"});
+els.forEach(function(e,i){e.classList.add("rv");e.style.transitionDelay=(i%4)*70+"ms";io.observe(e)})}
+/* contadores */
+$$(".stat b").forEach(function(b){var t=b.textContent;if(rm)return;var go=function(){var t0=performance.now();(function f(n){var p=Math.min(1,(n-t0)/900);b.textContent=t.replace(/\d+/g,function(x){return Math.round(x*p)});if(p<1)requestAnimationFrame(f)})(t0)};
+if("IntersectionObserver" in window){var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){go();o.disconnect()}});o.observe(b)}});
+/* línea de tiempo de 8 semanas */
+var sc=$(".scroll"),rows=$$("tbody tr",sc),L=["Reconocer","Diagnosticar","Taller de causas","Acuerdos","Sensibilizar","Puntos ecológicos","Operar la ruta","Cierre"],ol=d.createElement("ol");ol.className="tl";ol.setAttribute("aria-label","Cronograma de 8 semanas");
+rows.forEach(function(r,i){var li=d.createElement("li"),s=$("small",r.cells[0]);li.className=i==0?"done":i==1?"now":"";li.innerHTML='<button type="button"><i>'+(i==0?"✓":i+1)+"</i><b>"+L[i]+"</b><small>"+(s?s.textContent.replace(/[()]/g,""):"")+"</small></button>";
+li.firstChild.onclick=function(){r.scrollIntoView({behavior:B,block:"center"});r.classList.add("hl");setTimeout(function(){r.classList.remove("hl")},1800)};ol.appendChild(li)});
+sc.parentNode.insertBefore(ol,sc);
+/* hojas que caen */
+var hero=$(".hero");if(hero&&!rm)for(var k=0;k<8;k++){var s=d.createElement("span");s.className="fl";s.style.left=(5+k*12+Math.random()*6)+"%";s.style.animationDuration=(9+Math.random()*7)+"s";s.style.animationDelay=(-Math.random()*12)+"s";s.style.width=s.style.height=(10+Math.random()*10)+"px";hero.appendChild(s)}
 })();
 </script>
 </body></html>
