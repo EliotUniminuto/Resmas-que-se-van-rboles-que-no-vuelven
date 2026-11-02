@@ -63,7 +63,7 @@ h1{font-weight:800;font-size:clamp(2.1rem,6vw,3.8rem);margin-bottom:.3em}
 #lb.on{display:grid}#lb img{max-width:100%;max-height:90vh;border-radius:14px}
 .btn{display:inline-block;background:var(--sun);color:#12302c;text-decoration:none;font-weight:600;padding:10px 20px;border-radius:999px;margin:4px 8px 4px 0;border:0;cursor:pointer;font-family:inherit;font-size:1rem}
 .map{background:linear-gradient(135deg,var(--soft),var(--card));border:1.5px solid var(--line);border-radius:20px;padding:18px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-.pin{font-size:2rem}
+.pin{font-size:2rem}.vid{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:var(--soft);margin:12px 0}.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.mapframe{width:100%;height:340px;border:0;border-radius:20px;margin:14px 0;background:var(--soft)}
 details{background:var(--card);border:1.5px solid var(--line);border-radius:18px;margin:12px 0;padding:4px 18px}
 summary{cursor:pointer;font:700 1.15rem "Bricolage Grotesque",sans-serif;padding:12px 0;color:var(--teal)}
 details dl{margin:0 0 12px}details dt{font-weight:600;margin-top:.8em}details dd{margin:.1em 0 0;color:var(--mut)}
@@ -119,8 +119,9 @@ footer{text-align:center;color:var(--mut);font-size:.9rem;padding:24px 20px 40px
    <div class="card"><b>🌱 Actuar</b>Diseño con mis compañeros acciones para reducir, reutilizar y reciclar.</div></div>
   <h3>Preguntas que guían mi trabajo</h3>
   <div class="q"><p>¿Qué problemáticas sociales se identifican en el contexto local y cómo afectan a las comunidades involucradas?</p><p>¿Cómo las problemáticas evidenciadas en la práctica social revelan necesidades de intervención desde la responsabilidad social?</p></div>
-  <h3>Para reflexionar</h3>
-  <div class="map"><span class="pin">▶️</span><div><strong>Colombia, sin justicia social</strong> (DW Español, 2020)<br>Un video para pensar la desigualdad y por qué la responsabilidad es colectiva.<br><a class="btn" href="https://www.youtube.com/results?search_query=DW+Espa%C3%B1ol+Colombia+sin+justicia+social" target="_blank" rel="noopener">Ver video</a> <span class="ph">[pegar enlace directo]</span></div></div>
+  <h3>Para ver</h3>
+  <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/NS2SiXSILvU" title="Las hojas de papel y tu papel para frenar la deforestación (Fundación Grupo EPM, 2022)" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+  <p><strong>Las hojas de papel y tu papel para frenar la deforestación</strong> (Fundación Grupo EPM, 2022). Explica por qué el papel contribuye a la degradación del ambiente. Lo elegí porque habla de lo mismo que mi proyecto: detrás de cada hoja que imprimimos hay recursos naturales, y cuidarla empieza por decisiones simples de consumo. <a href="https://www.youtube.com/watch?v=NS2SiXSILvU" target="_blank" rel="noopener">Ver en YouTube</a></p>
   <p style="margin-top:20px">En la entrada 2 presento la problemática, el territorio, la guía multidimensional, los objetivos y el plan de trabajo.</p>
   <button class="btn" data-go="e2">Leer la entrada 2 →</button>
 </article>
@@ -145,6 +146,7 @@ footer{text-align:center;color:var(--mut);font-size:.9rem;padding:24px 20px 40px
   </div>
   <div class="map"><span class="pin">🗺️</span><div><strong>Georreferenciación</strong><br>Aeropuerto Internacional Matecaña, Pereira · coordenadas aprox. 4.81, −75.74<br><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Aeropuerto+Internacional+Mateca%C3%B1a+Pereira" target="_blank" rel="noopener">Abrir en Google Maps</a></div></div>
 
+  <iframe class="mapframe" title="Mapa del Aeropuerto Internacional Matecaña, Pereira" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Aeropuerto+Internacional+Mateca%C3%B1a+Pereira&output=embed"></iframe>
   <h2 id="guia"><span class="n">3</span>Guía multidimensional</h2>
   <p>Cada problemática se mira en tres escalas (local, nacional y latinoamericana) y con sus causas y efectos. <span class="ph">[Complemente con cifras de DANE, Superservicios o informes que consulte]</span></p>
   <details open><summary>Problemática 1 · Alto consumo de papel</summary><dl>
@@ -170,17 +172,17 @@ footer{text-align:center;color:var(--mut);font-size:.9rem;padding:24px 20px 40px
   <h2 id="plan"><span class="n">5</span>Plan de trabajo</h2>
   <div class="cards">
    <div class="card"><b>Actividad</b>Oficina OPAM: menos papel, más reciclaje</div>
-   <div class="card"><b>Objetivo central</b>Reducir en 20 % el consumo de resmas (de 4–5 a 3–4 al mes) y entregar el 100 % del papel aprovechable a un gestor, en 8 semanas.</div>
+   <div class="card"><b>Objetivo central</b>Iniciar un proceso participativo para reducir al menos 10 % las hojas impresas y hacer una primera entrega de papel a recicladores, en 8 semanas.</div>
    <div class="card"><b>Línea temática</b><span class="ph">[según su Proyecto Social de Formación]</span></div></div>
   <div class="scroll"><table><thead><tr><th>Semana</th><th>Acción</th><th>Duración</th><th>Estrategia</th><th>Canal</th><th>Responsable</th><th>Recursos</th><th>Indicador</th></tr></thead><tbody>
    <tr><td>1</td><td>Reconocer el contexto y reunirse con el interlocutor</td><td>2 h</td><td>Diálogo y recorrido de la oficina</td><td>Presencial</td><td>Estudiante</td><td>—</td><td>1 acta de reunión</td></tr>
-   <tr><td>2</td><td>Diagnóstico: conteo de resmas, fotos y encuesta</td><td>3 h</td><td>Registro de datos y observación</td><td>Presencial y virtual</td><td>Estudiante</td><td>—</td><td>40 encuestas; línea de base</td></tr>
-   <tr><td>3</td><td>Averiguar costos y taller de causas (árbol de problemas)</td><td>2 h</td><td>Taller participativo</td><td>Presencial</td><td>Estudiante e interlocutor <span class="ph">[nombre]</span></td><td>Facturas de compra, sala, marcadores</td><td>Costo mensual calculado; 1 árbol de problemas</td></tr>
-   <tr><td>4</td><td>Acordar medidas: impresión a doble cara y digitalización</td><td>2 h</td><td>Co-construcción con líderes de área</td><td>Presencial</td><td>Estudiante e interlocutor</td><td>Computador, ayuda de TI</td><td>Acuerdo firmado</td></tr>
-   <tr><td>5</td><td>Sensibilización: charla de 30 min y piezas gráficas</td><td>3 h</td><td>Educación ambiental</td><td>Presencial y correo</td><td>Estudiante</td><td>Video beam, afiches, listas de asistencia</td><td>30 personas asistentes</td></tr>
-   <tr><td>6</td><td>Instalar puntos ecológicos y contactar un gestor o recicladores</td><td>4 h</td><td>Alianza con recicladores de la zona</td><td>Presencial</td><td>Estudiante, servicios generales</td><td>Contenedores, señalización, balanza</td><td>2 puntos instalados; 1 acuerdo de recolección</td></tr>
+   <tr><td>2</td><td>Diagnóstico: conteo de resmas, fotos y encuesta</td><td>3 h</td><td>Registro de datos y observación</td><td>Presencial y virtual</td><td>Estudiante</td><td>—</td><td>20 encuestas; línea de base</td></tr>
+   <tr><td>3</td><td>Averiguar costos y taller de causas (árbol de problemas)</td><td>2 h</td><td>Taller participativo</td><td>Presencial</td><td>Estudiante e interlocutor <span class="ph">[nombre]</span></td><td>Facturas de compra, sala, marcadores</td><td>12 participantes; costo mensual calculado; 1 árbol de problemas</td></tr>
+   <tr><td>4</td><td>Acordar medidas: impresión a doble cara y digitalización</td><td>2 h</td><td>Co-construcción con líderes de área</td><td>Presencial</td><td>Estudiante e interlocutor</td><td>Computador, ayuda de TI</td><td>1 acuerdo; 2 medidas adoptadas</td></tr>
+   <tr><td>5</td><td>Sensibilización: charla de 30 min y piezas gráficas</td><td>3 h</td><td>Educación ambiental</td><td>Presencial y correo</td><td>Estudiante</td><td>Video beam, afiches, listas de asistencia</td><td>15 personas asistentes</td></tr>
+   <tr><td>6</td><td>Instalar puntos ecológicos y contactar un gestor o recicladores</td><td>4 h</td><td>Alianza con recicladores de la zona</td><td>Presencial</td><td>Estudiante, servicios generales</td><td>Contenedores, señalización, balanza</td><td>1 punto instalado; 1 contacto con recicladores</td></tr>
    <tr><td>7</td><td>Operación y pesaje semanal del papel</td><td>2 h</td><td>Seguimiento y ajustes</td><td>Presencial</td><td>Estudiante</td><td>Balanza, formato de registro</td><td>Kg de papel recuperado</td></tr>
-   <tr><td>8</td><td>Medición final, cierre y entrada final del blog</td><td>3 h</td><td>Comparar antes y después</td><td>Presencial y virtual</td><td>Estudiante e interlocutor</td><td>Encuesta final</td><td>% de reducción y % de papel entregado</td></tr>
+   <tr><td>8</td><td>Medición final, cierre y entrada final del blog</td><td>3 h</td><td>Comparar antes y después</td><td>Presencial y virtual</td><td>Estudiante e interlocutor</td><td>Encuesta final</td><td>10 % de reducción (meta) y 1 primera entrega</td></tr>
   </tbody></table></div>
   <h2 id="seguimiento"><span class="n">6</span>Seguimiento y evaluación</h2>
   <div class="cards">
@@ -196,10 +198,16 @@ footer{text-align:center;color:var(--mut);font-size:.9rem;padding:24px 20px 40px
   <p><strong>Teoría del cambio.</strong> Si las personas comprenden el problema, participan en el diseño y cuentan con infraestructura y rutas claras, cambian sus hábitos, baja el consumo y aumenta el papel recuperado, lo que aporta al desarrollo sostenible y a la inclusión social.</p>
   <p><a class="btn" href="https://www.un.org/es/about-us/universal-declaration-of-human-rights" target="_blank" rel="noopener">Declaración Universal de DD. HH.</a><a class="btn" href="https://sdgs.un.org/es/goals/goal12" target="_blank" rel="noopener">ODS 12</a></p>
 
+  <h2 id="recursos"><span class="n">🎬</span>Recursos para ampliar</h2>
+  <div class="cards">
+   <div class="card"><b>Video</b>Las hojas de papel y tu papel para frenar la deforestación (Fundación Grupo EPM).<br><a href="https://www.youtube.com/watch?v=NS2SiXSILvU" target="_blank" rel="noopener">Ver en YouTube</a></div>
+   <div class="card"><b>Lectura</b>Papel y cartón: por qué se debe gestionar adecuadamente (MITECO).<br><a href="https://www.miteco.gob.es/en/calidad-y-evaluacion-ambiental/temas/prevencion-y-gestion-residuos/flujos/domesticos/fracciones/papel-y-carton/por-que-debe-gestionar-adecuadamente.html" target="_blank" rel="noopener">Leer</a></div>
+   <div class="card"><b>Mapa</b>Ubicación de la oficina en Google Maps.<br><a href="https://www.google.com/maps/search/?api=1&query=Aeropuerto+Internacional+Mateca%C3%B1a+Pereira" target="_blank" rel="noopener">Abrir</a></div></div>
+
   <h2 id="referencias"><span class="n">8</span>Referencias</h2>
   <div class="refs">
    <p>Departamento Nacional de Planeación. (2016). <em>Política nacional para la gestión integral de residuos sólidos</em> (Documento CONPES 3874). DNP.</p>
-   <p>DW Español. (2020, 7 de diciembre). <em>Colombia, sin justicia social</em> [Video]. YouTube.</p>
+   <p>Fundación Grupo EPM. (2022, 11 de enero). <em>Las hojas de papel y tu papel para frenar la deforestación</em> [Video]. YouTube. https://www.youtube.com/watch?v=NS2SiXSILvU</p>
    <p>Ministerio de Ambiente y Desarrollo Sostenible. (2019). <em>Resolución 2184 de 2019</em>. Gobierno de Colombia.</p>
    <p>Naciones Unidas. (2015). <em>Transformar nuestro mundo: la Agenda 2030 para el Desarrollo Sostenible</em> (A/RES/70/1). Asamblea General.</p>
    <p>Pacheco Duarte, J. F., et al. (2022). <em>Ruta de innovación social: Paso a paso para desarrollar innovaciones sociales</em> (Documento Técnico 02). Corporación Universitaria Minuto de Dios.</p>
